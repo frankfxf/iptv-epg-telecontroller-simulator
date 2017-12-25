@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "IPTV盒子模拟器",
+    "version": "0.1",
+    "short_name": "StbSimulater",
+    "browser_action": {
+  	  "default_icon": "image/logo.png"
+  	},
+    "content_scripts":  [
+        {
+            "js": ["main.js"],
+            "matches": [ "http://*/*"],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources" : [
+        "remote_ctrl_simulater.js",
+        "stb_simulater.js","image/chances.png","image/close.png"]
+}
