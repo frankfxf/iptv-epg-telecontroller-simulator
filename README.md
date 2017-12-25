@@ -15,7 +15,7 @@
 2. 模拟播放器（注意初始化播放器请在页面加载完）;
 3. 提供模拟AAA鉴权跳转;
 
->*备注：最初版代码来自成思科技的coffee(coffeetang@gmail.com)开发的[chrome插件](https://chrome.google.com/webstore/detail/epg%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/bhecennlklhbbeofdfaabhlkklhikfjl?utm_source=chrome-ntp-icon)*;
+>*备注：最初版代码来自成思科技的coffee(coffeetang@gmail.com)开发的[chrome插件](https://chrome.google.com/webstore/detail/epg%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/bhecennlklhbbeofdfaabhlkklhikfjl?utm_source=chrome-ntp-icon)(版本v0.1.1)*;
 
 ## 移植原因：
 
