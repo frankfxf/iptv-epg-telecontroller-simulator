@@ -1,10 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "IPTV盒子模拟器",
-    "version": "0.1",
-    "short_name": "StbSimulater",
+    "name": "4k(IPTV)盒子遥控器模拟器",
+    "version": "0.4.7",
     "browser_action": {
-  	  "default_icon": "image/logo.png"
+  	    "default_icon": "image/logo.png"
   	},
     "content_scripts":  [
         {
@@ -15,5 +14,11 @@
     ],
     "web_accessible_resources" : [
         "remote_ctrl_simulater.js",
-        "stb_simulater.js","image/chances.png","image/close.png"]
+        "stb_simulater.js","image/zhenguang.png","image/close.png"],
+    "applications":{
+			  "gecko": {
+			  	"id":"{从火狐申请的APPID}",
+			    "strict_min_version": "42.0"
+			  }
+	}
 }
