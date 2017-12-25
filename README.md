@@ -1,8 +1,11 @@
 # iptv遥控器模拟器浏览器插件
 
 * 插件下载地址
-1. [chrome版](https://chrome.google.com/webstore/detail/epg%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/bhecennlklhbbeofdfaabhlkklhikfjl?utm_source=chrome-ntp-icon) (版本v0.1.1)
-2. [firefox版](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%94%B5%E4%BF%A14k%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/?src=api) (版本v0.4.7)
+
+1. [firefox版](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%94%B5%E4%BF%A14k%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/?src=api) (版本v0.4.7)
+![](https://addons.cdn.mozilla.net/user-media/previews/full/188/188191.png?modified=1505294549)
+2. [chrome版](https://chrome.google.com/webstore/detail/epg%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/bhecennlklhbbeofdfaabhlkklhikfjl?utm_source=chrome-ntp-icon) (版本v0.1.1)
+![](https://lh3.googleusercontent.com/TJbl6s6C7Xu8NJM0KgkAxRHxT_HuaNssWjCYbpBSfw8l2yGBtnbZMILKjZFn_acbRO2XE_UyQA=w640-h400-e365)
 
 ## epg页面开发人员遥控器模拟器;
 1. epg开发人员请拦截onkeypress事件;
