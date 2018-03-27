@@ -7,6 +7,7 @@ var   EVENT_MEDIA_BEGINING ="{type:'EVENT_MEDIA_BEGINING'}";
 var   EVENT_PLAYMODE_CHANGE ="{type:'EVENT_PLAYMODE_CHANGE'}";
 var   EVENT_TVMS ="{type:'EVENT_TVMS'}";
 
+var _thas=null;
 if(typeof(MediaPlayer)=="undefined"){
 
 	window.MediaPlayer = function(){};
@@ -16,12 +17,13 @@ if(typeof(MediaPlayer)=="undefined"){
 	}
 	MediaPlayer.prototype={
 			volume:80,
-			duration:2*60,
+			duration:30*60,
 			currentPlayTime:0,
 			mHeight:0,
 			mWidth:0,
 			mLeft:0,
 			mTop:0,
+			mCurrentPlayTimeSetInterval:null,
 			getNativePlayerInstanceID:function(){ 
 		       return 1;
 		    },
@@ -35,7 +37,7 @@ if(typeof(MediaPlayer)=="undefined"){
 		    getNativeUIFlag:function(){return 0},
 		    getMuteFlag:function(){return 1},
 		    getMuteUIFlag:function(){return 0},
-		    getVolume:function(){return 10},	
+		    getVolume:function(){return this.volume},	
 		    getSubtitle:function(){return "subtitle";},
 		    setMuteFlag:function(){},
 		    setVolume:function(value){this.volume=value},		    
@@ -50,13 +52,38 @@ if(typeof(MediaPlayer)=="undefined"){
 		    setAudioTrackUIFlag:function(){},
 		    setMuteUIFlag:function(){},
 		    setMuteUIFlag:function(){},
-		    playFromStart:function(){this.currentPlayTime=0;
+		    playFromStart:function(){
+		    	this.currentPlayTime=0;
 			var mVideo= document.getElementById("mVideo");
 		    		if(mVideo)
 		    		{
 		    			mVideo.style.display="block";
 		    			mVideo.textContent="VIDEO PLAY...";
 		    		}
+		    	if(this.currentPlayTime=="null"){
+		    		this.currentPlayTime = 0;
+		    	}
+		    	if(this.currentPlayTime==0){
+		    	
+			    		Utility.event = EVENT_MEDIA_BEGINING;
+			    		document.onkeypress({keyCode:768});
+			    	
+		    	}	    	
+		    	this.currentPlayTime=parseInt(this.currentPlayTime)+1;
+		    	if(this.currentPlayTime== this.duration){
+		    		Utility.event = EVENT_MEDIA_END;
+		    		document.onkeypress({keyCode:768});
+		    	}
+		    	var mVideo= document.getElementById("mVideo");
+				mVideo.textContent="VIDEO PLAY...";
+					_thas=this;
+				if(this.mCurrentPlayTimeSetInterval){
+					clearInterval(this.mCurrentPlayTimeSetInterval)
+					this.mCurrentPlayTimeSetInterval=null;
+
+				}
+					_thas=this;
+					this.updatePlayTime();
 			},
 		    setVideoDisplayArea:function(){
 		    	this.mHeight = arguments[3] ? arguments[3] : 0;//设置第四个参数的默认值为1 
@@ -121,6 +148,9 @@ if(typeof(MediaPlayer)=="undefined"){
 		    gotoStart:function(){
 				var mVideo= document.createElement('div');
 		    		mVideo.textContent="VIDEO PLAY...";
+		    		_thas=this;
+		    		_thas.currentPlayTime=0;
+				this.updatePlayTime();
 			},
 		    initMediaPlayer:function(){
 		    	this.mHeight = arguments[4] ? arguments[4] : 0;//设置第四个参数的默认值为1 
@@ -162,20 +192,42 @@ if(typeof(MediaPlayer)=="undefined"){
 		        // ctx.fillStyle = "green";
 		        // ctx.fill();
 		    },		    
-		    leaveChannel:function(){},
+		    leaveChannel:function(){
+		    	if(this.mCurrentPlayTimeSetInterval){
+					clearInterval(this.mCurrentPlayTimeSetInterval)
+						this.mCurrentPlayTimeSetInterval=null;
+
+				}
+		    },
 		    pause:function(){
 					var mVideo= document.getElementById("mVideo");
 				mVideo.textContent="VIDEO PAUSE";
+				if(this.mCurrentPlayTimeSetInterval){
+					clearInterval(this.mCurrentPlayTimeSetInterval)
+						this.mCurrentPlayTimeSetInterval=null;
+
+				}else{
+					_thas=this;
+					this.updatePlayTime();
+				}
 			},
 		    stop:function(){
+		    	this.currentPlayTime = 0;
 				var mVideo= document.getElementById("mVideo");
-				mVideo.style.visibility="hidden";
+				mVideo.style.display="none";
+					if(this.mCurrentPlayTimeSetInterval){
+					clearInterval(this.mCurrentPlayTimeSetInterval)
+						this.mCurrentPlayTimeSetInterval=null;
+
+				}
 			},
 		    switchAudioChannel:function(){},
 		    playByTime:function(type,time,speed){
 		    this.currentPlayTime=time;
 		    	var mVideo= document.createElement('div');
 		    	mVideo.textContent="VIDEO PLAY FROM "+time;
+		    	_thas=this;
+				this.updatePlayTime();
 		    },
 		    releaseMediaPlayer:function(){
 					var mVideo= document.getElementById("mVideo");
@@ -184,6 +236,23 @@ if(typeof(MediaPlayer)=="undefined"){
 		    		document.body.removeChild(mVideo);
 		    	}
 			},
+			 updatePlayTime:function(){
+				if(!_thas.mCurrentPlayTimeSetInterval){
+						_thas.mCurrentPlayTimeSetInterval=setInterval(function(){
+								//每秒更新进度条
+			                    _thas.currentPlayTime++;
+			                     if(_thas.currentPlayTime== _thas.duration){
+					    			Utility.event = EVENT_MEDIA_END;
+					    			document.onkeypress({keyCode:768});
+					    		}
+					    		if(_thas.currentPlayTime==0){
+						    		Utility.event = EVENT_MEDIA_BEGINING;
+						    		document.onkeypress({keyCode:768});
+					    		}	    	
+				},1000);
+			}
+		},
+			
 		    doPlay:function(){
 		    	if(this.currentPlayTime=="null"){
 		    		this.currentPlayTime = 0;
@@ -201,6 +270,8 @@ if(typeof(MediaPlayer)=="undefined"){
 		    	}
 		    	var mVideo= document.getElementById("mVideo");
 				mVideo.textContent="VIDEO PLAY...";
+				_thas=this;
+				this.updatePlayTime();
 		    }
 	}
 }
@@ -221,7 +292,7 @@ if(typeof(Authentication)=="undefined"){
 							return '88888888@etva';
 						}else
 						{
-							return null;
+							return 0;
 						}
 						
 					},

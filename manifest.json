@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "4k(IPTV)盒子遥控器模拟器",
-    "version": "0.4.7",
+    "version": "0.4.8",
     "browser_action": {
   	    "default_icon": "image/logo.png"
   	},
