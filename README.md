@@ -2,11 +2,13 @@
 
 * 插件下载地址
 
-1. [firefox版(v0.4.8)](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%94%B5%E4%BF%A14k%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/?src=api) 
+1. [firefox版v0.4.8]
+(https://addons.mozilla.org/zh-CN/firefox/addon/%E7%94%B5%E4%BF%A14k%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/?src=api)
 
 ![](https://addons.cdn.mozilla.net/user-media/previews/full/188/188191.png?modified=1505294549)
 
-2. [chrome版(v0.4.8)](https://chrome.google.com/webstore/detail/4kiptv%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/eedceomkfahdbanbdgjmojbmgmadflgm/reviews?hl=zh-CN)
+2. [chrome版v0.4.8](https://chrome.google.com/webstore/detail/4kiptv%E7%9B%92%E5%AD%90%E9%81%A5%E6%8E%A7%E5%99%A8%E6%A8%A1%E6%8B%9F%E5%99%A8/eedceomkfahdbanbdgjmojbmgmadflgm/reviews?hl=zh-CN)
+
 ![](https://addons.cdn.mozilla.net/user-media/previews/full/188/188191.png?modified=1505294549)
 
 2. [chrome版(v0.1.1)]
